@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Work with CSS variables</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>Update CSS variables with <span class="highlighted">JS</span></h1>
+	<div class="controls">
+		<label for="spacing">Spacing: </label>
+		<input id="spacing" type="range" min='0' max='250' value='10' data-sizing="px" name="spacing">
+
+		<label for="blur">Blur: </label>
+		<input id="blur" type="range" min='0' max='25' value='5' data-sizing="px" name='blur'>
+
+		<label for="base">Base Color: </label>
+		<input type="color" value='#ffc600' name='base'>
+	</div>
+
+	<img class="target-img" src="https://source.unsplash.com/7bwQXzbF6KE/800x500"  alt="there should be img">
+
+
+	<script src="workWithStyle.js"></script>
+</body>
+</html>
