@@ -1,0 +1,37 @@
+html,body{
+	margin:0;
+	padding:0;
+	font-family: cursive;
+	width: 100%;
+	display: flex;	
+	overflow: hidden;
+}
+
+.controls{	
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-color: #2b315d;
+	color: #FFF;
+	padding: 10px;
+	flex:2;	
+}
+
+.control{
+	margin-top: 20px;
+	font-size: 2.5vmin;
+}
+
+.control button{
+	padding: 10px;
+	font-size: 2.5vmin;
+	width: 120px;
+	color: #2b315d;
+	cursor: pointer;
+}
+
+.draw{
+	flex:6;
+	height: 100vh;
+}
+

@@ -3,9 +3,38 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Fun with HTML5 Canvas</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<canvas id="canvas" width="800" height="800"></canvas>
+	<div class="controls">
+		<div class="control">
+			<label for="backgroundColor">Background Color</label>
+			<input id="backgroundColor" type="color" value="#FFFFFF">
+		</div>
+
+		<div class="control">
+			<label for="brushWidth">Brush width</label>
+			<input id="brushWidth" type="range" min="0" max="300" value="10">
+		</div>
+		
+		<div class="control">
+			<label for="brushColor">Brush Color</label>
+			<input id="brushColor" type="color">
+		</div>
+
+		<div class="control">			
+			<input id="chkRainbow" type="checkbox">
+			<label for="chkRainbow">Make rainbow color</label>
+		</div>	
+
+		<div class="control">
+			<button id="clearBtn">Clear</button>
+		</div>	
+	</div>
+	<div class="draw">
+		<canvas id="canvas" width="800" height="800"></canvas>
+	</div>	
+	
 
 	<script src="canvas.js"></script>
 </body>
