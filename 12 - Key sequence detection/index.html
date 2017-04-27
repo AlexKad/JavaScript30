@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <!-- external library that add fun staff to the page by cornify_add() -->
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script> 
+</head>
+<body>
+  <p>Pss, take a look into console</p>
+<script>
+const pressed = [];
+const secretCode = 'wesbos';
+
+window.addEventListener('keyup', (e) => {
+  pressed.push(e.key);
+  //console.log(pressed);  
+  pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+  //console.log(pressed);
+
+  if (pressed.join('').includes(secretCode)) {
+    console.log('DING DING!');
+    cornify_add();
+  }  
+});
+</script>
+</body>
+</html>
