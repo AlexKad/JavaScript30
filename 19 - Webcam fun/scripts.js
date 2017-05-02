@@ -38,9 +38,9 @@ function applyFilters(ctx, width, height){
 	// pixel.data[4] red for 2 pixel etc... 
 	let pixels = ctx.getImageData(0, 0, width, height); 
 	//pixels = redEffect(pixels);
-	//pixels = rgbSplit(pixels);
+	pixels = rgbSplit(pixels);
 	//ctx.globalAlpha = 0.1;
-	pixels = greenScreen(pixels);
+	//pixels = greenScreen(pixels);
 	ctx.putImageData(pixels, 0, 0);
 }
 
