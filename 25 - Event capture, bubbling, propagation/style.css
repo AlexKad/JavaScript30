@@ -1,0 +1,13 @@
+div {
+    width:100%;
+    padding:100px;
+  }
+.one {
+  background: green;
+}
+.two {
+  background: lime;
+}
+.three {
+  background: yellow;
+}
