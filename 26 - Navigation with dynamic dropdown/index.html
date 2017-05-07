@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Follow Along Nav</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>  
+  <h1>There is a title</h1>
+  <nav class="top">
+    <div class="dropdownBackground">
+      <span class="arrow"></span>
+    </div>
+
+    <ul class="cool">
+      <li>
+        <a href="#">About Me</a>
+        <div class="dropdown about">
+          <div class="bio">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi ea tenetur aliquam maxime corrupti ratione animi molestias facilis numquam harum deserunt et dolores, aliquid, neque pariatur, sed quo inventore. Ad.
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="#">Courses</a>
+        <ul class="dropdown courses">
+          <li>
+            <span class="code">RFB</span>
+            <a href="https://ReactForBeginners.com">React For Beginners</a>
+          </li>
+          <li>
+            <span class="code">ES6</span>
+            <a href="https://ES6.io">ES6 For Everyone</a>
+          </li>
+          <li>
+            <span class="code">STPU</span>
+            <a href="https://SublimeTextBook.com">Sublime Text Power User</a>
+          </li>
+          <li>
+            <span class="code">WTF</span>
+            <a href="http://flexbox.io">What The Flexbox?!</a>
+          </li>
+          <li>
+            <span class="code">LRX</span>
+            <a href="http://LearnRedux.com">Learn Redux</a>
+          </li>
+          <li>
+            <span class="code">CLPU</span>
+            <a href="http://CommandLinePowerUser.com">Command Line Power User</a>
+          </li>
+          <li>
+            <span class="code">MMD</span>
+            <a href="http://MasteringMarkdown.com">Mastering Markdown</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Other Links</a>
+        <ul class="dropdown other">
+          <li><a class="button" href="http://twitter.com/wesbos">Twiter</a></li>
+          <li><a class="button" href="http://facebook.com/wesbos.developer">Facebook</a></li>
+          <li><a class="button" href="http://wesbos.com">Blog</a></li>
+          <li><a class="button" href="http://wesbos.com/courses">Course Catalog</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+<script>
+  const triggers = document.querySelectorAll('.cool>li');
+  const ddBackground = document.querySelector('.dropdownBackground');
+  const nav = document.querySelector('nav.top');
+
+  function handleEnter(){
+    this.classList.add('trigger-enter');  //add display:block    
+    setTimeout( ()=> {    
+      if (this.classList.contains('trigger-enter')) //if this class wasn't removed by mouse leave
+        this.classList.add('trigger-enter-active'); //add opacity:1 with animation
+    }, 150);
+
+    ddBackground.classList.add('open');
+    const dropdown = this.querySelector('.dropdown');
+    const contentCoord = dropdown.getBoundingClientRect();
+    //need to adjust position if ddBackground not in the body element 
+    const navCoord = this.getBoundingClientRect(); 
+
+    const coord ={
+      height: contentCoord.height,
+      width: contentCoord.width,
+      left: contentCoord.left,
+      top: contentCoord.top - navCoord.top
+    };
+    
+    ddBackground.style.width = coord.width + 'px';
+    ddBackground.style.height = coord.height + 'px';
+    ddBackground.style.setProperty('transform', `translate(${coord.left}px, ${coord.top}px)`);
+  }
+
+  function handleLeave(){
+    this.classList.remove('trigger-enter', 'trigger-enter-active');
+    ddBackground.classList.remove('open');
+  }
+
+  triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+  triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
+</script>
+
+</body>
+</html>
